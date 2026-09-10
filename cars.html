@@ -1,0 +1,2955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAG Motors | Cars</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(5,5,5,.78);
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar {
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: #e63946;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
+
+.nav-links a.active {
+    color: #e63946;
+}
+
+.nav-button {
+    padding: 11px 20px;
+
+    border-radius: 50px;
+
+    background: #e63946;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.nav-button:hover {
+    background: #ff4d59;
+    transform: translateY(-2px);
+}
+
+.menu {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+    font-size: 27px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.inventory-hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.96),
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.25)
+        ),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+
+    overflow: hidden;
+}
+
+.inventory-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(230,57,70,.2),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    padding-top: 80px;
+}
+
+.hero-label {
+    color: #e63946;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.hero-title {
+    font-size: clamp(48px,7vw,85px);
+
+    line-height: .95;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.hero-title span {
+    color: #e63946;
+}
+
+.hero-text {
+    color: #aaa;
+
+    max-width: 590px;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+/* =========================================================
+   FILTER AREA
+========================================================= */
+
+.inventory {
+    padding: 90px 0;
+}
+
+.top-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.top-row h2 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+}
+
+.top-row p {
+    color: #777;
+
+    margin-top: 8px;
+}
+
+/* =========================================================
+   FILTER BOX
+========================================================= */
+
+.filters {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr
+        auto;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 18px;
+
+    margin-bottom: 40px;
+}
+
+.search {
+    min-height: 55px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+
+    border-radius: 12px;
+
+    background: rgba(0,0,0,.4);
+
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.search span {
+    color: #888;
+
+    margin-right: 10px;
+
+    font-size: 20px;
+}
+
+.search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    color: white;
+
+    background: transparent;
+}
+
+.filter-select {
+    min-height: 55px;
+
+    border-radius: 12px;
+
+    padding: 0 14px;
+
+    color: #ddd;
+
+    background: #111;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    outline: none;
+}
+
+.filter-select option {
+    background: #111;
+    color: white;
+}
+
+.filter-button {
+    min-height: 55px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #e63946;
+
+    color: white;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.filter-button:hover {
+    background: #ff4d59;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results-bar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.results-count {
+    color: #888;
+
+    font-size: 14px;
+}
+
+.sort {
+    background: #111;
+
+    color: #ccc;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+/* =========================================================
+   CAR GRID
+========================================================= */
+
+.car-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.car-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 22px;
+
+    transition:
+        transform .4s,
+        box-shadow .4s,
+        border-color .4s;
+
+    transform-style: preserve-3d;
+}
+
+.car-card:hover {
+    transform:
+        translateY(-10px)
+        scale(1.01);
+
+    border-color:
+        rgba(230,57,70,.5);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.5);
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.car-image {
+    height: 260px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .7s ease;
+}
+
+.car-card:hover
+.car-image img {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    padding: 7px 12px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(0,0,0,.7);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.favorite {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.65);
+
+    color: white;
+
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.favorite:hover,
+.favorite.active {
+    background: #e63946;
+
+    transform:
+        scale(1.12);
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+    padding: 22px;
+}
+
+.category {
+    color: #e63946;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+
+    margin:
+        8px 0 10px;
+}
+
+.description {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    min-height: 42px;
+}
+
+.specs {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+
+    margin:
+        20px 0;
+}
+
+.spec {
+    padding: 10px 5px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: #aaa;
+
+    font-size: 11px;
+}
+
+.spec strong {
+    display: block;
+
+    color: white;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.card-footer {
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.price small {
+    display: block;
+
+    color: #666;
+
+    font-size: 10px;
+
+    margin-bottom: 3px;
+}
+
+.price strong {
+    font-size: 22px;
+}
+
+.view-button {
+    border: none;
+
+    background:
+        rgba(230,57,70,.12);
+
+    color: #e63946;
+
+    padding:
+        11px 14px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.view-button:hover {
+    background: #e63946;
+
+    color: white;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty {
+    display: none;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    color: #777;
+}
+
+.empty-icon {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.empty h3 {
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: none;
+
+    place-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.82);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    width: min(850px,100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #111113;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 25px;
+
+    position: relative;
+
+    animation:
+        modalAnimation .35s ease;
+}
+
+@keyframes modalAnimation {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+.modal-image {
+    height: 380px;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.close {
+    position: absolute;
+
+    right: 18px;
+    top: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.7);
+
+    color: white;
+
+    font-size: 22px;
+
+    z-index: 3;
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content .category {
+    margin-bottom: 8px;
+}
+
+.modal-content h2 {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    color: #999;
+
+    line-height: 1.8;
+}
+
+.modal-price {
+    font-size: 30px;
+
+    font-weight: 900;
+
+    margin:
+        20px 0;
+}
+
+.contact-button {
+    display: inline-block;
+
+    padding:
+        14px 22px;
+
+    border-radius: 12px;
+
+    background: #e63946;
+
+    color: white;
+
+    font-weight: 800;
+
+    border: none;
+
+    transition: .3s;
+}
+
+.contact-button:hover {
+    background: #ff4d59;
+
+    transform:
+        translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        50px 0 30px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.footer-logo {
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.footer-logo span {
+    color: #e63946;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    z-index: 8000;
+
+    padding:
+        15px 20px;
+
+    border-radius: 12px;
+
+    background: #151517;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.5);
+
+    transform:
+        translateY(100px);
+
+    opacity: 0;
+
+    transition: .4s;
+}
+
+.toast.show {
+    transform:
+        translateY(0);
+
+    opacity: 1;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px) {
+
+    .car-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .filters {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 80px;
+        left: 4%;
+
+        width: 92%;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        background:
+            rgba(10,10,10,.97);
+
+        border:
+            1px solid
+            rgba(255,255,255,.1);
+
+        border-radius: 18px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .inventory-hero {
+        min-height: 580px;
+    }
+
+    .hero-title {
+        font-size: 55px;
+        letter-spacing: -3px;
+    }
+
+    .car-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .top-row {
+        display: block;
+    }
+
+    .top-row h2 {
+        font-size: 35px;
+    }
+
+    .results-bar {
+        display: block;
+    }
+
+    .sort {
+        margin-top: 12px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+CAG<span>.</span>
+</a>
+
+<nav>
+
+<ul class="nav-links" id="navLinks">
+
+<li>
+<a href="cag.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="cars.html" class="active">
+Cars
+</a>
+</li>
+
+<li>
+<a href="Services.html">
+Services
+</a>
+</li>
+
+<li>
+<a href="cag.html#about">
+About
+</a>
+</li>
+
+<li>
+<a href="cag.html#contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<a href="cag.html#contact"
+class="nav-button">
+
+Contact Us
+
+</a>
+
+<button
+class="menu"
+id="menu">
+
+☰
+
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="inventory-hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-label">
+CAG Motors Inventory
+</div>
+
+<h1 class="hero-title">
+Find Your
+<span>Perfect Car.</span>
+</h1>
+
+<p class="hero-text">
+Explore our premium collection of luxury cars,
+high-performance sports cars, SUVs and reliable
+vehicles. Your next dream car is waiting.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     INVENTORY
+===================================================== -->
+
+<section class="inventory">
+
+<div class="container">
+
+<div class="top-row">
+
+<div>
+
+<h2>
+Our Cars
+</h2>
+
+<p>
+Browse our latest vehicles.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FILTERS
+===================================================== -->
+
+<div class="filters">
+
+<div class="search">
+
+<span>
+⌕
+</span>
+
+<input
+type="text"
+id="search"
+placeholder="Search vehicle..."
+>
+
+</div>
+
+
+<select
+id="category"
+class="filter-select">
+
+<option value="all">
+All Categories
+</option>
+
+<option value="Luxury">
+Luxury
+</option>
+
+<option value="Sport">
+Sport
+</option>
+
+<option value="SUV">
+SUV
+</option>
+
+<option value="Sedan">
+Sedan
+</option>
+
+</select>
+
+
+<select
+id="brand"
+class="filter-select">
+
+<option value="all">
+All Brands
+</option>
+
+<option value="BMW">
+BMW
+</option>
+
+<option value="Mercedes">
+Mercedes
+</option>
+
+<option value="Porsche">
+Porsche
+</option>
+
+<option value="Audi">
+Audi
+</option>
+
+<option value="Toyota">
+Toyota
+</option>
+
+<option value="Range Rover">
+Range Rover
+</option>
+
+</select>
+
+
+<select
+id="price"
+class="filter-select">
+
+<option value="all">
+Any Price
+</option>
+
+<option value="50000">
+Under $50K
+</option>
+
+<option value="80000">
+Under $80K
+</option>
+
+<option value="100000">
+Under $100K
+</option>
+
+<option value="150000">
+Under $150K
+</option>
+
+</select>
+
+
+<button
+class="filter-button"
+id="reset">
+
+Reset
+
+</button>
+
+</div>
+
+
+<!-- =====================================================
+     RESULTS BAR
+===================================================== -->
+
+<div class="results-bar">
+
+<div class="results-count">
+
+Showing
+<strong id="count">
+12
+</strong>
+vehicles
+
+</div>
+
+<select
+class="sort"
+id="sort">
+
+<option value="default">
+Sort: Featured
+</option>
+
+<option value="low">
+Price: Low to High
+</option>
+
+<option value="high">
+Price: High to Low
+</option>
+
+<option value="new">
+Newest First
+</option>
+
+</select>
+
+</div>
+
+
+<!-- =====================================================
+     CARS
+===================================================== -->
+
+<div
+class="car-grid"
+id="carGrid">
+
+
+<!-- CAR 1 -->
+
+<article
+class="car-card"
+data-name="BMW M4 Competition"
+data-brand="BMW"
+data-category="Sport"
+data-price="78900"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=90"
+alt="BMW M4">
+
+<div class="badge">
+Featured
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Sport
+</div>
+
+<h3>
+BMW M4 Competition
+</h3>
+
+<p class="description">
+High-performance luxury coupe with aggressive styling.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>503 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$78,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 2 -->
+
+<article
+class="car-card"
+data-name="Mercedes AMG GT"
+data-brand="Mercedes"
+data-category="Luxury"
+data-price="112500"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=90"
+alt="Mercedes AMG">
+
+<div class="badge">
+Premium
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Luxury
+</div>
+
+<h3>
+Mercedes AMG GT
+</h3>
+
+<p class="description">
+A sophisticated grand tourer combining luxury and speed.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>4.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>577 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$112,500
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 3 -->
+
+<article
+class="car-card"
+data-name="Range Rover Sport"
+data-brand="Range Rover"
+data-category="SUV"
+data-price="92500"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+alt="Range Rover">
+
+<div class="badge">
+New
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+SUV
+</div>
+
+<h3>
+Range Rover Sport
+</h3>
+
+<p class="description">
+Luxury SUV designed for comfort, power and adventure.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>355 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$92,500
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 4 -->
+
+<article
+class="car-card"
+data-name="Porsche 911 Carrera"
+data-brand="Porsche"
+data-category="Sport"
+data-price="108900"
+data-year="2024"
+data-image="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=90"
+alt="Porsche">
+
+<div class="badge">
+Iconic
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Sport
+</div>
+
+<h3>
+Porsche 911 Carrera
+</h3>
+
+<p class="description">
+An iconic sports car delivering pure driving excitement.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2024</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>379 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$108,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 5 -->
+
+<article
+class="car-card"
+data-name="Audi RS7"
+data-brand="Audi"
+data-category="Luxury"
+data-price="99500"
+data-year="2024"
+data-image="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+alt="Audi RS7">
+
+<div class="badge">
+Executive
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Luxury
+</div>
+
+<h3>
+Audi RS7
+</h3>
+
+<p class="description">
+Elegant design with serious performance under the hood.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2024</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>4.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>591 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$99,500
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 6 -->
+
+<article
+class="car-card"
+data-name="Toyota Land Cruiser"
+data-brand="Toyota"
+data-category="SUV"
+data-price="68900"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=90"
+alt="Toyota">
+
+<div class="badge">
+Bestseller
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+SUV
+</div>
+
+<h3>
+Toyota Land Cruiser
+</h3>
+
+<p class="description">
+Legendary off-road capability with modern luxury.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.5L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>409 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$68,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 7 -->
+
+<article
+class="car-card"
+data-name="BMW X7"
+data-brand="BMW"
+data-category="SUV"
+data-price="84900"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=1200&q=90"
+alt="BMW X7">
+
+<div class="badge">
+Family
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+SUV
+</div>
+
+<h3>
+BMW X7
+</h3>
+
+<p class="description">
+Spacious luxury SUV built for family journeys.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>375 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$84,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 8 -->
+
+<article
+class="car-card"
+data-name="Mercedes C-Class"
+data-brand="Mercedes"
+data-category="Sedan"
+data-price="58900"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1618843479619-f3d0f2c0f4a0?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1618843479619-f3d0f2c0f4a0?auto=format&fit=crop&w=1200&q=90"
+alt="Mercedes C Class">
+
+<div class="badge">
+Popular
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Sedan
+</div>
+
+<h3>
+Mercedes C-Class
+</h3>
+
+<p class="description">
+Modern luxury sedan with a refined interior.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>2.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>255 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$58,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 9 -->
+
+<article
+class="car-card"
+data-name="Audi A6"
+data-brand="Audi"
+data-category="Sedan"
+data-price="62500"
+data-year="2024"
+data-image="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+alt="Audi A6">
+
+<div class="badge">
+Executive
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Sedan
+</div>
+
+<h3>
+Audi A6
+</h3>
+
+<p class="description">
+Elegant business sedan with advanced technology.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2024</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>2.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>261 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$62,500
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 10 -->
+
+<article
+class="car-card"
+data-name="Porsche Cayenne"
+data-brand="Porsche"
+data-category="SUV"
+data-price="88500"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=90"
+alt="Porsche Cayenne">
+
+<div class="badge">
+Performance
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+SUV
+</div>
+
+<h3>
+Porsche Cayenne
+</h3>
+
+<p class="description">
+Sporty SUV combining everyday practicality and performance.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>348 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$88,500
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 11 -->
+
+<article
+class="car-card"
+data-name="BMW 7 Series"
+data-brand="BMW"
+data-category="Luxury"
+data-price="105000"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&w=1200&q=90"
+alt="BMW 7 Series">
+
+<div class="badge">
+Luxury
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Luxury
+</div>
+
+<h3>
+BMW 7 Series
+</h3>
+
+<p class="description">
+Flagship luxury sedan with an exceptional cabin.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>3.0L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>375 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$105,000
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CAR 12 -->
+
+<article
+class="car-card"
+data-name="Toyota Camry"
+data-brand="Toyota"
+data-category="Sedan"
+data-price="34900"
+data-year="2025"
+data-image="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=90">
+
+<div class="car-image">
+
+<img
+src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=90"
+alt="Toyota Camry">
+
+<div class="badge">
+Value
+</div>
+
+<button class="favorite">
+♡
+</button>
+
+</div>
+
+<div class="card-content">
+
+<div class="category">
+Sedan
+</div>
+
+<h3>
+Toyota Camry
+</h3>
+
+<p class="description">
+Reliable, efficient and comfortable for everyday driving.
+</p>
+
+<div class="specs">
+
+<div class="spec">
+<strong>2025</strong>
+Year
+</div>
+
+<div class="spec">
+<strong>2.5L</strong>
+Engine
+</div>
+
+<div class="spec">
+<strong>225 HP</strong>
+Power
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="price">
+<small>Starting at</small>
+<strong>
+$34,900
+</strong>
+</div>
+
+<button class="view-button">
+View Car
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<!-- EMPTY -->
+
+<div class="empty" id="empty">
+
+<div class="empty-icon">
+🚗
+</div>
+
+<h3>
+No vehicles found
+</h3>
+
+<p>
+Try changing your search or filters.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<div class="footer-logo">
+CAG<span>.</span>
+</div>
+
+</div>
+
+<div>
+© 2026 CAG Motors. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="modal">
+
+<div class="modal-box">
+
+<button
+class="close"
+id="close">
+
+×
+</button>
+
+<div class="modal-image">
+
+<img
+id="modalImage"
+src=""
+alt="Car">
+
+</div>
+
+<div class="modal-content">
+
+<div
+class="category"
+id="modalCategory">
+Luxury
+</div>
+
+<h2 id="modalTitle">
+Car
+</h2>
+
+<p id="modalDescription">
+Premium vehicle.
+</p>
+
+<div
+class="modal-price"
+id="modalPrice">
+$0
+</div>
+
+<a
+href="index.html#contact"
+class="contact-button">
+
+Request This Vehicle →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast">
+
+Added to favorites ❤️
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menu.addEventListener(
+"click",
+() => {
+
+navLinks.classList.toggle(
+"show"
+);
+
+});
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const search =
+document.getElementById("search");
+
+const category =
+document.getElementById("category");
+
+const brand =
+document.getElementById("brand");
+
+const price =
+document.getElementById("price");
+
+const reset =
+document.getElementById("reset");
+
+const sort =
+document.getElementById("sort");
+
+const cards =
+[...document.querySelectorAll(".car-card")];
+
+const count =
+document.getElementById("count");
+
+const empty =
+document.getElementById("empty");
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterCars() {
+
+const searchValue =
+search.value
+.toLowerCase()
+.trim();
+
+const categoryValue =
+category.value;
+
+const brandValue =
+brand.value;
+
+const priceValue =
+price.value;
+
+let visibleCars = [];
+
+
+cards.forEach(card => {
+
+const name =
+card.dataset.name
+.toLowerCase();
+
+const cardCategory =
+card.dataset.category;
+
+const cardBrand =
+card.dataset.brand;
+
+const cardPrice =
+Number(card.dataset.price);
+
+
+const searchMatch =
+name.includes(searchValue);
+
+const categoryMatch =
+categoryValue === "all" ||
+cardCategory === categoryValue;
+
+const brandMatch =
+brandValue === "all" ||
+cardBrand === brandValue;
+
+const priceMatch =
+priceValue === "all" ||
+cardPrice <=
+Number(priceValue);
+
+
+if (
+searchMatch &&
+categoryMatch &&
+brandMatch &&
+priceMatch
+) {
+
+card.style.display =
+"block";
+
+visibleCars.push(card);
+
+} else {
+
+card.style.display =
+"none";
+
+}
+
+});
+
+
+count.textContent =
+visibleCars.length;
+
+
+if (visibleCars.length === 0) {
+
+empty.style.display =
+"block";
+
+} else {
+
+empty.style.display =
+"none";
+
+}
+
+}
+
+
+search.addEventListener(
+"input",
+filterCars
+);
+
+category.addEventListener(
+"change",
+filterCars
+);
+
+brand.addEventListener(
+"change",
+filterCars
+);
+
+price.addEventListener(
+"change",
+filterCars
+);
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+reset.addEventListener(
+"click",
+() => {
+
+search.value =
+"";
+
+category.value =
+"all";
+
+brand.value =
+"all";
+
+price.value =
+"all";
+
+sort.value =
+"default";
+
+filterCars();
+
+});
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+sort.addEventListener(
+"change",
+() => {
+
+const value =
+sort.value;
+
+const grid =
+document.getElementById(
+"carGrid"
+);
+
+
+let sorted =
+[...cards];
+
+
+if (value === "low") {
+
+sorted.sort(
+(a,b) =>
+Number(a.dataset.price) -
+Number(b.dataset.price)
+);
+
+}
+
+
+if (value === "high") {
+
+sorted.sort(
+(a,b) =>
+Number(b.dataset.price) -
+Number(a.dataset.price)
+);
+
+}
+
+
+if (value === "new") {
+
+sorted.sort(
+(a,b) =>
+Number(b.dataset.year) -
+Number(a.dataset.year)
+);
+
+}
+
+
+sorted.forEach(card => {
+
+grid.appendChild(card);
+
+});
+
+filterCars();
+
+});
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+const toast =
+document.getElementById("toast");
+
+let toastTimer;
+
+document
+.querySelectorAll(".favorite")
+.forEach(button => {
+
+button.addEventListener(
+"click",
+event => {
+
+event.stopPropagation();
+
+button.classList.toggle(
+"active"
+);
+
+if (
+button.classList.contains(
+"active"
+)
+) {
+
+button.textContent =
+"♥";
+
+toast.textContent =
+"Added to favorites ❤️";
+
+} else {
+
+button.textContent =
+"♡";
+
+toast.textContent =
+"Removed from favorites";
+
+}
+
+
+toast.classList.add(
+"show"
+);
+
+clearTimeout(
+toastTimer
+);
+
+toastTimer =
+setTimeout(
+() => {
+
+toast.classList.remove(
+"show"
+);
+
+},
+2200
+);
+
+});
+
+});
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+const modal =
+document.getElementById("modal");
+
+const close =
+document.getElementById("close");
+
+const modalImage =
+document.getElementById(
+"modalImage"
+);
+
+const modalTitle =
+document.getElementById(
+"modalTitle"
+);
+
+const modalCategory =
+document.getElementById(
+"modalCategory"
+);
+
+const modalDescription =
+document.getElementById(
+"modalDescription"
+);
+
+const modalPrice =
+document.getElementById(
+"modalPrice"
+);
+
+
+document
+.querySelectorAll(".view-button")
+.forEach(button => {
+
+button.addEventListener(
+"click",
+() => {
+
+const card =
+button.closest(
+".car-card"
+);
+
+modalImage.src =
+card.dataset.image;
+
+modalTitle.textContent =
+card.dataset.name;
+
+modalCategory.textContent =
+card.dataset.category;
+
+modalPrice.textContent =
+"$" +
+Number(
+card.dataset.price
+).toLocaleString();
+
+modalDescription.textContent =
+`${card.dataset.name} is available at CAG Motors. This ${card.dataset.category.toLowerCase()} vehicle is a ${card.dataset.year} model. Contact our team for availability, financing options, test drives and additional specifications.`;
+
+modal.classList.add(
+"show"
+);
+
+document.body.style.overflow =
+"hidden";
+
+});
+
+});
+
+
+function closeModal() {
+
+modal.classList.remove(
+"show"
+);
+
+document.body.style.overflow =
+"";
+
+}
+
+
+close.addEventListener(
+"click",
+closeModal
+);
+
+
+modal.addEventListener(
+"click",
+event => {
+
+if (
+event.target === modal
+) {
+
+closeModal();
+
+}
+
+});
+
+
+document.addEventListener(
+"keydown",
+event => {
+
+if (
+event.key === "Escape"
+) {
+
+closeModal();
+
+}
+
+});
+
+
+/* =========================================================
+   CARD 3D EFFECT
+========================================================= */
+
+cards.forEach(card => {
+
+card.addEventListener(
+"mousemove",
+event => {
+
+if (
+window.innerWidth < 900
+) return;
+
+
+const rect =
+card.getBoundingClientRect();
+
+const x =
+event.clientX -
+rect.left;
+
+const y =
+event.clientY -
+rect.top;
+
+const centerX =
+rect.width / 2;
+
+const centerY =
+rect.height / 2;
+
+const rotateX =
+((y-centerY) /
+centerY) * -2;
+
+const rotateY =
+((x-centerX) /
+centerX) * 2;
+
+
+card.style.transform =
+`translateY(-10px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)`;
+
+});
+
+
+card.addEventListener(
+"mouseleave",
+() => {
+
+card.style.transform =
+"";
+
+});
+
+});
+
+
+/* =========================================================
+   INITIAL FILTER
+========================================================= */
+
+filterCars();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAG Motors | Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,5,5,.75);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.logo span{
+    color:#e63946;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#999;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active{
+    color:#e63946;
+}
+
+.contact-nav{
+    background:#e63946;
+    padding:11px 20px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.menu{
+    display:none;
+    background:none;
+    color:#fff;
+    border:0;
+    font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    position:relative;
+
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90")
+    center/cover;
+}
+
+.hero-content{
+    padding-top:80px;
+    max-width:700px;
+}
+
+.label{
+    color:#e63946;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(50px,7vw,85px);
+    line-height:.95;
+    letter-spacing:-5px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#e63946;
+}
+
+.hero p{
+    color:#aaa;
+    max-width:600px;
+    line-height:1.8;
+}
+
+/* SERVICES */
+
+.services{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:48px;
+    letter-spacing:-3px;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:12px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service{
+    position:relative;
+    padding:35px;
+    min-height:300px;
+    border-radius:22px;
+
+    background:
+    linear-gradient(145deg,
+    rgba(255,255,255,.07),
+    rgba(255,255,255,.025));
+
+    border:1px solid rgba(255,255,255,.08);
+
+    overflow:hidden;
+    transition:.45s;
+}
+
+.service::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    right:-80px;
+    top:-80px;
+    background:#e63946;
+    filter:blur(80px);
+    opacity:.12;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+    border-color:rgba(230,57,70,.5);
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    display:grid;
+    place-items:center;
+    border-radius:16px;
+    background:rgba(230,57,70,.12);
+    color:#e63946;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.service h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.service p{
+    color:#888;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.service a{
+    display:inline-block;
+    margin-top:25px;
+    color:#e63946;
+    font-size:13px;
+    font-weight:800;
+}
+
+/* PROCESS */
+
+.process{
+    padding:80px 0 120px;
+    background:#080808;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+}
+
+.number{
+    width:60px;
+    height:60px;
+    margin:auto auto 20px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(230,57,70,.5);
+    border-radius:50%;
+    color:#e63946;
+    font-weight:900;
+}
+
+.step h3{
+    margin-bottom:10px;
+}
+
+.step p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:13px;
+}
+
+.footer-logo{
+    color:white;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.footer-logo span{
+    color:#e63946;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:80px;
+        left:4%;
+        width:92%;
+        padding:20px;
+        flex-direction:column;
+        background:#101010;
+        border-radius:18px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .contact-nav{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+CAG<span>.</span>
+</a>
+
+<ul class="nav-links" id="nav">
+<li><a href="cag.html">Home</a></li>
+<li><a href="cars.html">Cars</a></li>
+<li><a class="active" href="Services.html">Services</a></li>
+<li><a href="About.html">About</a></li>
+<li><a href="financing.html">Financing</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<a class="contact-nav" href="contact.html">
+Contact Us
+</a>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+
+<div class="label">CAG Motors Services</div>
+
+<h1>
+More Than
+<span>Just Cars.</span>
+</h1>
+
+<p>
+From finding your dream vehicle to financing,
+maintenance and after-sales support, CAG Motors
+is here for every step of your automotive journey.
+</p>
+
+</div>
+</section>
+
+<section class="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Services</h2>
+<p>Everything you need, all under one roof.</p>
+</div>
+
+<div class="service-grid">
+
+<div class="service">
+<div class="icon">🚗</div>
+<h3>Vehicle Sales</h3>
+<p>
+Explore our carefully selected collection of
+luxury, sports, SUV and everyday vehicles.
+</p>
+<a href="cars.html">Browse Cars →</a>
+</div>
+
+<div class="service">
+<div class="icon">💳</div>
+<h3>Auto Financing</h3>
+<p>
+Flexible financing solutions designed to make
+your dream vehicle easier to own.
+</p>
+<a href="financing.html">Get Financing →</a>
+</div>
+
+<div class="service">
+<div class="icon">🔧</div>
+<h3>Vehicle Maintenance</h3>
+<p>
+Professional maintenance and servicing to keep
+your vehicle performing at its best.
+</p>
+<a href="contact.html">Book Service →</a>
+</div>
+
+<div class="service">
+<div class="icon">🔄</div>
+<h3>Trade-In</h3>
+<p>
+Trade your current vehicle and put its value
+toward your next CAG Motors purchase.
+</p>
+<a href="contact.html">Value My Car →</a>
+</div>
+
+<div class="service">
+<div class="icon">🛡️</div>
+<h3>Vehicle Protection</h3>
+<p>
+Protect your investment with our vehicle
+protection and warranty solutions.
+</p>
+<a href="contact.html">Learn More →</a>
+</div>
+
+<div class="service">
+<div class="icon">⭐</div>
+<h3>Premium Support</h3>
+<p>
+Our customer team is available to help before,
+during and after your purchase.
+</p>
+<a href="contact.html">Contact Us →</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="process">
+
+<div class="container">
+
+<div class="section-title">
+<h2>How It Works</h2>
+<p>A simple way to get behind the wheel.</p>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="number">01</div>
+<h3>Choose</h3>
+<p>Find the vehicle that fits your lifestyle.</p>
+</div>
+
+<div class="step">
+<div class="number">02</div>
+<h3>Inspect</h3>
+<p>Explore specifications and vehicle details.</p>
+</div>
+
+<div class="step">
+<div class="number">03</div>
+<h3>Finance</h3>
+<p>Choose a financing option that works for you.</p>
+</div>
+
+<div class="step">
+<div class="number">04</div>
+<h3>Drive</h3>
+<p>Complete the process and enjoy your new car.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container footer">
+
+<div class="footer-logo">
+CAG<span>.</span>
+</div>
+
+<div>
+© 2026 CAG Motors. All rights reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("nav").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

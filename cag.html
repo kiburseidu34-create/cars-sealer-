@@ -1,0 +1,2895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAG Motors | Drive Your Dream</title>
+
+<meta name="description"
+      content="CAG Motors - Premium cars, luxury vehicles and exceptional service.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<style>
+/* =========================================================
+   CAG MOTORS
+   PREMIUM CAR DEALERSHIP LANDING PAGE
+========================================================= */
+
+:root {
+    --bg: #050505;
+    --bg-2: #0b0b0d;
+    --card: rgba(255,255,255,0.055);
+    --card-border: rgba(255,255,255,0.1);
+    --white: #ffffff;
+    --text: #eeeeee;
+    --muted: #9a9a9f;
+    --accent: #e63946;
+    --accent-2: #ff5964;
+    --gold: #d6a84f;
+    --shadow: 0 25px 70px rgba(0,0,0,.45);
+    --radius: 22px;
+    --transition: .35s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(230,57,70,.10), transparent 30%),
+        radial-gradient(circle at 10% 70%, rgba(214,168,79,.06), transparent 30%),
+        var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #030303;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    transition: .7s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.loader-logo span {
+    color: var(--accent);
+}
+
+.loader-line {
+    width: 180px;
+    height: 3px;
+    background: #222;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.loader-line::before {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: var(--accent);
+    animation: loading 1.2s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    background: rgba(5,5,5,.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -8px;
+    left: 0;
+    background: var(--accent);
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-btn {
+    padding: 11px 18px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 50px;
+    background: rgba(255,255,255,.05);
+    color: white;
+    transition: .3s;
+}
+
+.nav-btn:hover {
+    background: white;
+    color: black;
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+        rgba(0,0,0,.93) 0%,
+        rgba(0,0,0,.68) 42%,
+        rgba(0,0,0,.22) 100%),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 75% 50%, rgba(230,57,70,.16), transparent 32%);
+    pointer-events: none;
+}
+
+.hero-grid {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    color: #ddd;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: .95;
+    letter-spacing: -5px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,.75);
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #bdbdbd;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: 0;
+    padding: 15px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: .35s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 12px 30px rgba(230,57,70,.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(230,57,70,.38);
+    background: #f04754;
+}
+
+.btn-outline {
+    background: rgba(255,255,255,.06);
+    color: white;
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+    transform: translateY(-4px);
+}
+
+.hero-stats {
+    margin-top: 60px;
+    display: flex;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.hero-stat strong {
+    font-size: 30px;
+    display: block;
+}
+
+.hero-stat span {
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Floating car info */
+.floating-card {
+    position: absolute;
+    right: 7%;
+    bottom: 13%;
+    width: 280px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 20px;
+    background: rgba(10,10,10,.5);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+
+.floating-card small {
+    color: #999;
+}
+
+.floating-card h3 {
+    margin: 5px 0 10px;
+}
+
+.floating-price {
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section {
+    padding: 110px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.section-heading > div:first-child {
+    max-width: 650px;
+}
+
+.section-tag {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(35px, 5vw, 58px);
+    letter-spacing: -2.5px;
+    line-height: 1;
+}
+
+.section-description {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr auto;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 18px;
+    margin-bottom: 45px;
+    backdrop-filter: blur(15px);
+}
+
+.search-field {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+}
+
+.search-field input,
+.search-field select {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    color: white;
+    background: transparent;
+}
+
+.search-field select option {
+    color: black;
+}
+
+.search-field span {
+    margin-right: 10px;
+    opacity: .7;
+}
+
+/* =========================================================
+   CAR GRID
+========================================================= */
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.car-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: .4s;
+    position: relative;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(230,57,70,.45);
+    box-shadow: 0 25px 70px rgba(0,0,0,.4);
+}
+
+.car-image {
+    height: 245px;
+    position: relative;
+    overflow: hidden;
+}
+
+.car-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.car-card:hover .car-image img {
+    transform: scale(1.08);
+}
+
+.car-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 7px 10px;
+    border-radius: 50px;
+    background: rgba(0,0,0,.6);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(8px);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.favorite {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,.6);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: .3s;
+}
+
+.favorite:hover,
+.favorite.active {
+    background: var(--accent);
+    transform: scale(1.1);
+}
+
+.car-info {
+    padding: 22px;
+}
+
+.car-category {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.car-info h3 {
+    margin: 8px 0 7px;
+    font-size: 21px;
+}
+
+.car-specs {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    color: #999;
+    font-size: 12px;
+    margin: 14px 0 20px;
+}
+
+.car-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.car-price {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.details-btn {
+    border: 0;
+    background: transparent;
+    color: white;
+    font-weight: 700;
+}
+
+.details-btn:hover {
+    color: var(--accent);
+}
+
+/* =========================================================
+   FEATURED BANNER
+========================================================= */
+
+.feature-banner {
+    min-height: 480px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.62),
+        rgba(0,0,0,.1)),
+        url("https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.feature-content {
+    max-width: 570px;
+    padding: 65px;
+}
+
+.feature-content h2 {
+    font-size: clamp(38px,5vw,65px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.feature-content p {
+    color: #c5c5c5;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.service-card {
+    padding: 30px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    transition: .35s;
+}
+
+.service-card:hover {
+    background: rgba(255,255,255,.07);
+    transform: translateY(-7px);
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(230,57,70,.12);
+    color: var(--accent);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-section {
+    padding: 70px 0;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.big-stat {
+    font-size: clamp(35px,5vw,60px);
+    font-weight: 900;
+}
+
+.big-stat span {
+    color: var(--accent);
+}
+
+.stat-label {
+    color: #777;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.testimonial {
+    padding: 28px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.035);
+}
+
+.stars {
+    color: #f5c451;
+    margin-bottom: 18px;
+}
+
+.testimonial p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.customer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.customer-avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--accent);
+    font-weight: 800;
+}
+
+.customer small {
+    color: #777;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    text-align: center;
+    padding: 100px 30px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(230,57,70,.22), transparent 45%),
+        rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.cta h2 {
+    font-size: clamp(38px,5vw,65px);
+    letter-spacing: -3px;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #999;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 70px 0 30px;
+    border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-logo {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-about {
+    color: #777;
+    max-width: 350px;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.footer-col h4 {
+    margin-bottom: 18px;
+}
+
+.footer-col a {
+    display: block;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: .3s;
+}
+
+.footer-col a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.07);
+    margin-top: 50px;
+    padding-top: 25px;
+    color: #666;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: rgba(0,0,0,.78);
+    backdrop-filter: blur(15px);
+    display: none;
+    place-items: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    width: min(850px,100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #101012;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 25px;
+    position: relative;
+    animation: modalIn .35s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-image {
+    height: 350px;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content h2 {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+.modal-content p {
+    color: #999;
+    line-height: 1.7;
+}
+
+.close-modal {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,.65);
+    color: white;
+    font-size: 20px;
+    z-index: 3;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9000;
+    padding: 15px 20px;
+    background: #161619;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: .4s;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .car-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .floating-card {
+        display: none;
+    }
+
+    .search-box {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 4%;
+        width: 92%;
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(10,10,10,.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 18px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .hero {
+        min-height: 850px;
+        background:
+            linear-gradient(0deg,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.55)),
+            url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1500&q=90")
+            center/cover;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .car-grid,
+    .testimonials,
+    .services-grid,
+    .stats-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-content {
+        padding: 35px;
+    }
+
+    .feature-banner {
+        min-height: 550px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    section {
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .car-image {
+        height: 220px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     LOADER
+======================================================= -->
+
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="loader-logo">
+            CAG<span>.</span>
+        </div>
+
+        <div class="loader-line"></div>
+
+        <small>DRIVE YOUR DREAM</small>
+    </div>
+</div>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header id="header">
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            CAG<span>.</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="cars.html">Cars</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="#cars" class="nav-btn">
+                Browse Cars
+            </a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                Premium Automotive Experience
+            </div>
+
+            <h1>
+                Drive Your
+                <span>Dream.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover a carefully selected collection of premium
+                vehicles built for people who expect more from every
+                journey.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#cars" class="btn btn-primary">
+                    Explore Cars →
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Talk to an Expert
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+                    <strong>250+</strong>
+                    <span>Cars Available</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>18+</strong>
+                    <span>Years Experience</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>4.9/5</strong>
+                    <span>Customer Rating</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="floating-card">
+
+        <small>Featured Vehicle</small>
+
+        <h3>BMW M4 Competition</h3>
+
+        <div class="floating-price">
+            $78,900
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     CARS
+======================================================= -->
+
+<section id="cars">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="section-tag">
+                    Our Collection
+                </div>
+
+                <h2 class="section-title">
+                    Find Your Next Car
+                </h2>
+
+                <p class="section-description">
+                    Explore our premium selection of performance,
+                    luxury, family and everyday vehicles.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- SEARCH -->
+
+        <div class="search-box reveal">
+
+            <div class="search-field">
+                <span>⌕</span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search car name..."
+                >
+            </div>
+
+            <div class="search-field">
+                <select id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="Luxury">Luxury</option>
+                    <option value="Sport">Sport</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Sedan">Sedan</option>
+                </select>
+            </div>
+
+            <div class="search-field">
+                <select id="priceFilter">
+                    <option value="all">Any Price</option>
+                    <option value="50000">Under $50K</option>
+                    <option value="80000">Under $80K</option>
+                    <option value="100000">Under $100K</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" id="searchBtn">
+                Search
+            </button>
+
+        </div>
+
+        <!-- CAR GRID -->
+
+        <div class="car-grid" id="carGrid">
+
+            <!-- CAR 1 -->
+
+            <article
+                class="car-card reveal"
+                data-name="BMW M4 Competition"
+                data-type="Sport"
+                data-price="78900"
+                data-image="https://www.bing.com/images/search?view=detailV2&ccid=Z7g%2bWcGn&id=548D1D02CC852238C3259C73A1400D3E93700A8A&thid=OIP.Z7g-WcGndFvgkMKwpndw0gHaE8&mediaurl=https%3a%2f%2fwww.mclarenscottsdale.com%2fimagetag%2f1289%2fmain%2fl%2fUsed-2024-BMW-M4-Competition-xDrive-1727128219.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.67b83e59c1a7745be090c2b0a67770d2%3frik%3digpwkz4NQKFznA%26pid%3dImgRaw%26r%3d0&exph=1280&expw=1920&q=BMW+M4+Competition&FORM=IRPRST&ck=B8115F14060CC1E2C1AA7DA1B0D305A9&selectedIndex=12&itb=0"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=90"
+                        alt="BMW M4"
+                    >
+
+
+                    <div class="car-badge">
+                        Featured
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        Sport
+                    </div>
+
+                    <h3>
+                        BMW M4 Competition
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2025</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>3.0L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $78,900
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CAR 2 -->
+
+            <article
+                class="car-card reveal"
+                data-name="Mercedes AMG GT"
+                data-type="Luxury"
+                data-price="112500"
+                data-image="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=90"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=90"
+                        alt="Mercedes AMG"
+                    >
+
+                    <div class="car-badge">
+                        Premium
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        Luxury
+                    </div>
+
+                    <h3>
+                        Mercedes AMG GT
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2025</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>4.0L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $112,500
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CAR 3 -->
+
+            <article
+                class="car-card reveal"
+                data-name="Range Rover Sport"
+                data-type="SUV"
+                data-price="92500"
+                data-image="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+                        alt="Range Rover"
+                    >
+
+                    <div class="car-badge">
+                        New
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        SUV
+                    </div>
+
+                    <h3>
+                        Range Rover Sport
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2025</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>3.0L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $92,500
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CAR 4 -->
+
+            <article
+                class="car-card reveal"
+                data-name="Porsche 911 Carrera"
+                data-type="Sport"
+                data-price="108900"
+                data-image="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=90"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=90"
+                        alt="Porsche 911"
+                    >
+
+                    <div class="car-badge">
+                        Iconic
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        Sport
+                    </div>
+
+                    <h3>
+                        Porsche 911 Carrera
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2024</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>3.0L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $108,900
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CAR 5 -->
+
+            <article
+                class="car-card reveal"
+                data-name="Audi RS7"
+                data-type="Luxury"
+                data-price="99500"
+                data-image="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=90"
+                        alt="Audi"
+                    >
+
+                    <div class="car-badge">
+                        Executive
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        Luxury
+                    </div>
+
+                    <h3>
+                        Audi RS7
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2024</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>4.0L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $99,500
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CAR 6 -->
+
+            <article
+                class="car-card reveal"
+                data-name="Toyota Land Cruiser"
+                data-type="SUV"
+                data-price="68900"
+                data-image="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=90"
+            >
+
+                <div class="car-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=90"
+                        alt="Toyota Land Cruiser"
+                    >
+
+                    <div class="car-badge">
+                        Bestseller
+                    </div>
+
+                    <button class="favorite">
+                        ♡
+                    </button>
+
+                </div>
+
+                <div class="car-info">
+
+                    <div class="car-category">
+                        SUV
+                    </div>
+
+                    <h3>
+                        Toyota Land Cruiser
+                    </h3>
+
+                    <div class="car-specs">
+                        <span>2025</span>
+                        <span>•</span>
+                        <span>Automatic</span>
+                        <span>•</span>
+                        <span>3.5L</span>
+                    </div>
+
+                    <div class="car-bottom">
+
+                        <div class="car-price">
+                            $68,900
+                        </div>
+
+                        <button class="details-btn">
+                            Details →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     FEATURE
+======================================================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="feature-banner reveal">
+
+            <div class="feature-content">
+
+                <div class="section-tag">
+                    CAG Experience
+                </div>
+
+                <h2>
+                    More Than A Car.
+                    It's Your Story.
+                </h2>
+
+                <p>
+                    At CAG Motors, we believe buying a vehicle should
+                    be exciting, transparent and effortless. Every
+                    vehicle in our collection is carefully selected
+                    for quality and performance.
+                </p>
+
+                <a href="#contact" class="btn btn-primary">
+                    Meet Our Team →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="section-tag">
+                    Why CAG
+                </div>
+
+                <h2 class="section-title">
+                    Everything You Need.
+                </h2>
+
+                <p class="section-description">
+                    From selecting your dream vehicle to driving
+                    it home, our team is here to make everything simple.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    🚗
+                </div>
+
+                <h3>
+                    Premium Selection
+                </h3>
+
+                <p>
+                    Carefully inspected vehicles from trusted
+                    manufacturers around the world.
+                </p>
+
+            </div>
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Vehicle Warranty
+                </h3>
+
+                <p>
+                    Drive with confidence knowing your investment
+                    is protected.
+                </p>
+
+            </div>
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    💳
+                </div>
+
+                <h3>
+                    Easy Financing
+                </h3>
+
+                <p>
+                    Flexible financing solutions designed around
+                    your budget.
+                </p>
+
+            </div>
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    Expert Service
+                </h3>
+
+                <p>
+                    Professional support from our experienced
+                    automotive specialists.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     STATS
+======================================================= -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div>
+                <div class="big-stat">
+                    <span class="counter" data-target="18">0</span>+
+                </div>
+                <div class="stat-label">
+                    Years Experience
+                </div>
+            </div>
+
+            <div>
+                <div class="big-stat">
+                    <span class="counter" data-target="5000">0</span>+
+                </div>
+                <div class="stat-label">
+                    Cars Sold
+                </div>
+            </div>
+
+            <div>
+                <div class="big-stat">
+                    <span class="counter" data-target="98">0</span>%
+                </div>
+                <div class="stat-label">
+                    Happy Customers
+                </div>
+            </div>
+
+            <div>
+                <div class="big-stat">
+                    <span class="counter" data-target="24">0</span>/7
+                </div>
+                <div class="stat-label">
+                    Customer Support
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     TESTIMONIALS
+======================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="section-tag">
+                    Customer Stories
+                </div>
+
+                <h2 class="section-title">
+                    Loved By Drivers.
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="testimonials">
+
+            <div class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The entire buying experience was incredible.
+                    CAG made everything simple and professional.
+                    I absolutely love my new car."
+                </p>
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        MK
+                    </div>
+
+                    <div>
+                        <strong>
+                            Michael K.
+                        </strong>
+                        <br>
+                        <small>
+                            BMW M4 Owner
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Excellent customer service and a beautiful
+                    selection of vehicles. The team helped me find
+                    exactly what I wanted."
+                </p>
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        SA
+                    </div>
+
+                    <div>
+                        <strong>
+                            Sarah A.
+                        </strong>
+                        <br>
+                        <small>
+                            Range Rover Owner
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Professional, transparent and fast. I would
+                    definitely recommend CAG Motors to anyone looking
+                    for a premium vehicle."
+                </p>
+
+                <div class="customer">
+
+                    <div class="customer-avatar">
+                        JD
+                    </div>
+
+                    <div>
+                        <strong>
+                            James D.
+                        </strong>
+                        <br>
+                        <small>
+                            Porsche Owner
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     CTA
+======================================================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="cta reveal">
+
+            <div class="section-tag">
+                Start Your Journey
+            </div>
+
+            <h2>
+                Ready To Drive?
+            </h2>
+
+            <p>
+                Tell us what you're looking for and our automotive
+                specialists will help you find the perfect vehicle.
+            </p>
+
+            <div class="hero-buttons" style="justify-content:center;">
+
+                <button class="btn btn-primary" id="contactBtn">
+                    Contact CAG Motors →
+                </button>
+
+                <a href="tel:+251900000000" class="btn btn-outline">
+                    Call Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+                    CAG<span>.</span>
+                </div>
+
+                <p class="footer-about">
+                    Premium vehicles. Exceptional service.
+                    Your next journey starts with CAG Motors.
+                </p>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#about">
+                    About Us
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#cars">
+                    Inventory
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>
+                    Vehicles
+                </h4>
+
+                <a href="#cars">
+                    Luxury
+                </a>
+
+                <a href="#cars">
+                    Sport
+                </a>
+
+                <a href="#cars">
+                    SUVs
+                </a>
+
+                <a href="#cars">
+                    Sedans
+                </a>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <a href="tel:+251900000000">
+                    +251 900 000 000
+                </a>
+
+                <a href="mailto:info@cagmotors.com">
+                    info@cagmotors.com
+                </a>
+
+                <a href="#">
+                    Bahir Dar, Ethiopia
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 CAG Motors. All rights reserved.
+            </span>
+
+            <span>
+                Built for the road ahead.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- =======================================================
+     MODAL
+======================================================= -->
+
+<div class="modal" id="carModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" id="closeModal">
+            ×
+        </button>
+
+        <div class="modal-image">
+
+            <img id="modalImage" src="" alt="Car">
+
+        </div>
+
+        <div class="modal-content">
+
+            <div class="section-tag">
+                Vehicle Details
+            </div>
+
+            <h2 id="modalTitle">
+                Car
+            </h2>
+
+            <p id="modalDescription">
+                Premium vehicle available at CAG Motors.
+            </p>
+
+            <br>
+
+            <button class="btn btn-primary" id="modalContact">
+                Request This Vehicle →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div class="toast" id="toast">
+    Added to your favorites ❤️
+</div>
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
+    }, 800);
+
+});
+
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+const favoriteButtons =
+    document.querySelectorAll(".favorite");
+
+favoriteButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        button.classList.toggle("active");
+
+        if (button.classList.contains("active")) {
+
+            button.innerHTML = "♥";
+
+            showToast("Added to your favorites ❤️");
+
+        } else {
+
+            button.innerHTML = "♡";
+
+            showToast("Removed from favorites");
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+const toast = document.getElementById("toast");
+
+let toastTimer;
+
+function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   CAR SEARCH
+========================================================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const typeFilter =
+    document.getElementById("typeFilter");
+
+const priceFilter =
+    document.getElementById("priceFilter");
+
+const searchBtn =
+    document.getElementById("searchBtn");
+
+const cars =
+    document.querySelectorAll(".car-card");
+
+
+function filterCars() {
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+    const type =
+        typeFilter.value;
+
+    const price =
+        priceFilter.value;
+
+    let visible = 0;
+
+    cars.forEach(car => {
+
+        const name =
+            car.dataset.name.toLowerCase();
+
+        const carType =
+            car.dataset.type;
+
+        const carPrice =
+            Number(car.dataset.price);
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesType =
+            type === "all" ||
+            carType === type;
+
+        const matchesPrice =
+            price === "all" ||
+            carPrice <= Number(price);
+
+        if (
+            matchesSearch &&
+            matchesType &&
+            matchesPrice
+        ) {
+
+            car.style.display = "";
+
+            visible++;
+
+        } else {
+
+            car.style.display = "none";
+
+        }
+
+    });
+
+    if (visible === 0) {
+
+        showToast("No cars found.");
+
+    }
+
+}
+
+
+searchBtn.addEventListener("click", filterCars);
+
+searchInput.addEventListener("keyup", event => {
+
+    if (event.key === "Enter") {
+
+        filterCars();
+
+    }
+
+});
+
+typeFilter.addEventListener("change", filterCars);
+
+priceFilter.addEventListener("change", filterCars);
+
+
+/* =========================================================
+   CAR MODAL
+========================================================= */
+
+const modal =
+    document.getElementById("carModal");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const modalImage =
+    document.getElementById("modalImage");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const modalContact =
+    document.getElementById("modalContact");
+
+
+document.querySelectorAll(".details-btn")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const card =
+            button.closest(".car-card");
+
+        const name =
+            card.dataset.name;
+
+        const image =
+            card.dataset.image;
+
+        const price =
+            Number(card.dataset.price)
+            .toLocaleString();
+
+        modalTitle.textContent =
+            name;
+
+        modalImage.src =
+            image;
+
+        modalDescription.textContent =
+            `${name} is available at CAG Motors for $${price}. Contact our team for availability, financing options and a personalized viewing.`;
+
+        modal.classList.add("show");
+
+        document.body.classList.add("modal-open");
+
+    });
+
+});
+
+
+function closeCarModal() {
+
+    modal.classList.remove("show");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+closeModal.addEventListener(
+    "click",
+    closeCarModal
+);
+
+
+modal.addEventListener("click", event => {
+
+    if (event.target === modal) {
+
+        closeCarModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        modal.classList.contains("show")
+    ) {
+
+        closeCarModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   MODAL CONTACT
+========================================================= */
+
+modalContact.addEventListener("click", () => {
+
+    closeCarModal();
+
+    document
+        .getElementById("contact")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    setTimeout(() => {
+
+        showToast(
+            "Our team will be ready to help you."
+        );
+
+    }, 800);
+
+});
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+document
+    .getElementById("contactBtn")
+    .addEventListener("click", () => {
+
+        showToast(
+            "Thank you! CAG Motors will contact you."
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("active");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   COUNTER ANIMATION
+========================================================= */
+
+const counters =
+    document.querySelectorAll(".counter");
+
+let counterStarted = false;
+
+
+function startCounters() {
+
+    if (counterStarted) return;
+
+    counterStarted = true;
+
+    counters.forEach(counter => {
+
+        const target =
+            Number(counter.dataset.target);
+
+        let current = 0;
+
+        const duration = 1800;
+
+        const start =
+            performance.now();
+
+        function update(time) {
+
+            const progress =
+                Math.min(
+                    (time - start) / duration,
+                    1
+                );
+
+            const eased =
+                1 - Math.pow(
+                    1 - progress,
+                    3
+                );
+
+            current =
+                Math.floor(
+                    target * eased
+                );
+
+            counter.textContent =
+                current.toLocaleString();
+
+            if (progress < 1) {
+
+                requestAnimationFrame(update);
+
+            } else {
+
+                counter.textContent =
+                    target.toLocaleString();
+
+            }
+
+        }
+
+        requestAnimationFrame(update);
+
+    });
+
+}
+
+
+const statsSection =
+    document.querySelector(".stats-section");
+
+
+const statsObserver =
+    new IntersectionObserver(
+        entries => {
+
+            if (entries[0].isIntersecting) {
+
+                startCounters();
+
+            }
+
+        },
+        {
+            threshold: .3
+        }
+    );
+
+
+statsObserver.observe(statsSection);
+
+
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
+
+const hero =
+    document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+        window.scrollY;
+
+    if (scroll < window.innerHeight) {
+
+        hero.style.backgroundPosition =
+            `center ${scroll * 0.25}px`;
+
+    }
+
+});
+
+
+/* =========================================================
+   DYNAMIC CURRENT YEAR
+========================================================= */
+
+const footerYear =
+    document.querySelector(
+        ".footer-bottom span"
+    );
+
+if (footerYear) {
+
+    footerYear.textContent =
+        `© ${new Date().getFullYear()} CAG Motors. All rights reserved.`;
+
+}
+
+
+/* =========================================================
+   SMOOTH ANCHOR LINKS
+========================================================= */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+    anchor.addEventListener("click", function(event) {
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   CARD TILT EFFECT
+========================================================= */
+
+document
+.querySelectorAll(".car-card")
+.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        if (window.innerWidth < 900) return;
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 2;
+
+        card.style.transform =
+            `translateY(-10px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
+});
+
+
+/* =========================================================
+   CONSOLE MESSAGE
+========================================================= */
+
+console.log(
+    "%c CAG MOTORS ",
+    "background:#e63946;color:#fff;font-size:20px;font-weight:bold;padding:10px;"
+);
+
+console.log(
+    "Premium automotive experience loaded."
+);
+
+</script>
+
+</body>
+</html>

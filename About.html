@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn more about CAG Motors and our commitment to making every journey exceptional.">
+<title>About Us | CAG Motors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #050505; --panel: #101012; --panel-light: #17171a; --text: #f5f5f5; --muted: #a4a4aa; --accent: #e63946; --line: rgba(255,255,255,.12); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: radial-gradient(circle at 85% 15%, rgba(230,57,70,.14), transparent 32%), var(--bg); color: var(--text); font-family: "Inter", sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.container { margin: auto; width: min(1160px, 92%); }
+header { background: rgba(5,5,5,.86); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 10; }
+.navbar { align-items: center; display: flex; height: 78px; justify-content: space-between; }
+.logo { font-size: 24px; font-weight: 900; letter-spacing: 3px; }
+.logo span, .eyebrow { color: var(--accent); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { color: #d5d5d5; font-size: 14px; font-weight: 600; }
+.nav-links a:hover, .nav-links a.active { color: #fff; }
+.nav-links a.active { border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+.nav-button { border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; padding: 11px 17px; }
+.nav-button:hover { background: #fff; color: #000; }
+.hero { padding: 110px 0 86px; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+.hero-grid { align-items: end; display: grid; gap: 60px; grid-template-columns: 1.1fr .9fr; }
+h1 { font-size: clamp(42px, 7vw, 82px); letter-spacing: -2px; line-height: 1.02; margin: 18px 0 24px; max-width: 760px; }
+.hero-copy { color: var(--muted); font-size: 18px; max-width: 560px; }
+.hero-image { border-radius: 18px; min-height: 360px; overflow: hidden; }
+.hero-image img { height: 100%; object-fit: cover; width: 100%; }
+.story { border-top: 1px solid var(--line); padding: 90px 0; }
+.story-grid { display: grid; gap: 70px; grid-template-columns: .75fr 1.25fr; }
+h2 { font-size: clamp(30px, 4vw, 52px); letter-spacing: -1px; line-height: 1.1; }
+.story-copy p { color: var(--muted); margin-top: 20px; max-width: 680px; }
+.stats { display: grid; gap: 1px; grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
+.stat { background: var(--panel); padding: 25px; }
+.stat strong { display: block; font-size: 32px; }
+.stat span { color: var(--muted); font-size: 13px; }
+.values { background: var(--panel); padding: 90px 0; }
+.section-heading { margin-bottom: 42px; }
+.section-heading p { color: var(--muted); margin-top: 14px; max-width: 560px; }
+.values-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.value { background: var(--panel-light); border: 1px solid var(--line); padding: 30px; }
+.value-number { color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+.value h3 { font-size: 21px; margin: 22px 0 10px; }
+.value p { color: var(--muted); font-size: 14px; }
+.cta { padding: 90px 0; text-align: center; }
+.cta p { color: var(--muted); margin: 16px auto 30px; max-width: 520px; }
+.button { background: var(--accent); border-radius: 999px; display: inline-block; font-size: 14px; font-weight: 800; padding: 14px 24px; }
+.button:hover { background: #ff5964; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding: 24px 0; }
+@media (max-width: 760px) {
+	.navbar { height: auto; padding: 20px 0; }
+	.nav-links { gap: 12px; margin-left: 20px; }
+	.nav-links a { font-size: 12px; }
+	.nav-button { display: none; }
+	.hero { padding: 72px 0 60px; }
+	.hero-grid, .story-grid { grid-template-columns: 1fr; gap: 34px; }
+	.hero-image { min-height: 250px; }
+	.story, .values, .cta { padding: 60px 0; }
+	.values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+	<nav class="container navbar" aria-label="Main navigation">
+		<a class="logo" href="cag.html">CAG<span>.</span></a>
+		<ul class="nav-links">
+			<li><a href="cag.html">Home</a></li>
+			<li><a href="cars.html">Cars</a></li>
+			<li><a class="active" href="About.html" aria-current="page">About</a></li>
+			<li><a href="Services.html">Services</a></li>
+		</ul>
+		<a class="nav-button" href="contact.html">Contact us</a>
+	</nav>
+</header>
+<main>
+	<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">About CAG Motors</div><h1>Driven by the road ahead.</h1><p class="hero-copy">We make finding the right vehicle feel personal, transparent and genuinely exciting. Every car is selected with care, so every drive can begin with confidence.</p></div><div class="hero-image"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1200&amp;q=90" alt="Black sports car on an open road"></div></div></section>
+	<section class="story"><div class="container story-grid"><div><div class="eyebrow">Our story</div><h2>More than a car. It is your story.</h2></div><div class="story-copy"><p>CAG Motors was built around a simple idea: buying a vehicle should be as enjoyable as driving it. Our team combines deep automotive knowledge with a straightforward, human approach.</p><p>From your first question to the moment you take the keys, we focus on honest guidance, carefully inspected vehicles and service that continues long after the sale.</p><div class="stats"><div class="stat"><strong>10+</strong><span>Years of automotive experience</span></div><div class="stat"><strong>500+</strong><span>Drivers helped find their fit</span></div><div class="stat"><strong>100%</strong><span>Vehicles selected with care</span></div><div class="stat"><strong>1</strong><span>Team committed to your journey</span></div></div></div></div></section>
+	<section class="values"><div class="container"><div class="section-heading"><div class="eyebrow">What guides us</div><h2>Confidence in every mile.</h2><p>Our promise is simple: make every part of the CAG experience clear, considered and worth remembering.</p></div><div class="values-grid"><article class="value"><div class="value-number">01</div><h3>Quality first</h3><p>We seek out vehicles that deliver dependable performance, strong character and lasting value.</p></article><article class="value"><div class="value-number">02</div><h3>Clear advice</h3><p>No pressure and no confusing sales talk. You get the information you need to choose well.</p></article><article class="value"><div class="value-number">03</div><h3>Long-term care</h3><p>Our relationship does not end at the handover. We are here for the road that follows.</p></article></div></div></section>
+	<section class="cta"><div class="container"><div class="eyebrow">Start your next chapter</div><h2>Find the car that feels like you.</h2><p>Explore our current collection or speak with the CAG Motors team today.</p><a class="button" href="cars.html">Explore our cars</a></div></section>
+</main>
+<footer><div class="container">&copy; 2025 CAG Motors. Built for the journey ahead.</div></footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore flexible vehicle financing options with CAG Motors.">
+<title>Financing | CAG Motors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#050505; --panel:#111113; --panel-light:#19191c; --text:#f5f5f5; --muted:#a4a4aa; --accent:#e63946; --line:rgba(255,255,255,.12); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:radial-gradient(circle at 80% 10%,rgba(230,57,70,.15),transparent 32%),var(--bg); color:var(--text); font-family:"Inter",sans-serif; line-height:1.6; }
+a { color:inherit; text-decoration:none; }
+.container { margin:auto; width:min(1160px,92%); }
+header { background:rgba(5,5,5,.88); border-bottom:1px solid var(--line); backdrop-filter:blur(16px); position:sticky; top:0; z-index:5; }
+.navbar { align-items:center; display:flex; height:78px; justify-content:space-between; }
+.logo { font-size:24px; font-weight:900; letter-spacing:3px; }
+.logo span,.eyebrow { color:var(--accent); }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { color:#d5d5d5; font-size:14px; font-weight:600; }
+.nav-links a:hover,.nav-links a.active { color:#fff; }
+.nav-links a.active { border-bottom:2px solid var(--accent); padding-bottom:8px; }
+.nav-button { border:1px solid var(--line); border-radius:999px; font-size:13px; font-weight:700; padding:11px 17px; }
+.nav-button:hover { background:#fff; color:#000; }
+.hero { padding:100px 0 70px; text-align:center; }
+.eyebrow { font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+h1 { font-size:clamp(42px,6vw,74px); letter-spacing:-2px; line-height:1.03; margin:18px auto 20px; max-width:760px; }
+.hero p { color:var(--muted); font-size:17px; margin:auto; max-width:600px; }
+.calculator { background:var(--panel); border:1px solid var(--line); display:grid; gap:45px; grid-template-columns:1.1fr .9fr; margin:0 auto 90px; padding:clamp(25px,5vw,48px); }
+.calculator h2,.steps h2 { font-size:30px; margin-bottom:10px; }
+.calculator-intro,.step p { color:var(--muted); font-size:14px; }
+.form-grid { display:grid; gap:18px; grid-template-columns:1fr 1fr; margin-top:28px; }
+.field { display:grid; gap:8px; }
+.field.full { grid-column:1/-1; }
+label { font-size:13px; font-weight:700; }
+input { background:var(--panel-light); border:1px solid var(--line); color:#fff; font:inherit; padding:13px 14px; width:100%; }
+input:focus { border-color:var(--accent); outline:0; }
+.result { align-items:center; background:var(--panel-light); display:flex; flex-direction:column; justify-content:center; padding:35px 20px; text-align:center; }
+.result span { color:var(--muted); font-size:13px; }
+.result strong { font-size:48px; line-height:1.2; margin:12px 0; }
+.result small { color:var(--muted); font-size:12px; }
+.steps { border-top:1px solid var(--line); padding:80px 0; }
+.steps-heading { margin-bottom:38px; }
+.steps-heading p { color:var(--muted); margin-top:10px; }
+.step-grid { display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
+.step { background:var(--panel); border:1px solid var(--line); padding:28px; }
+.step-number { color:var(--accent); font-size:13px; font-weight:800; letter-spacing:1px; }
+.step h3 { font-size:20px; margin:20px 0 10px; }
+.cta { padding:0 0 90px; text-align:center; }
+.cta p { color:var(--muted); margin:12px auto 25px; }
+.button { background:var(--accent); border-radius:999px; display:inline-block; font-size:14px; font-weight:800; padding:14px 24px; }
+.button:hover { background:#ff5964; }
+footer { border-top:1px solid var(--line); color:var(--muted); font-size:13px; padding:24px 0; }
+@media (max-width:760px) {
+    .navbar { height:auto; padding:20px 0; }
+    .nav-links { gap:12px; margin-left:20px; }
+    .nav-links a { font-size:12px; }
+    .nav-button { display:none; }
+    .hero { padding:70px 0 50px; }
+    .calculator { grid-template-columns:1fr; margin-bottom:60px; }
+    .step-grid { grid-template-columns:1fr; }
+    .steps { padding:60px 0; }
+    .cta { padding-bottom:60px; }
+}
+</style>
+</head>
+<body>
+<header>
+    <nav class="container navbar" aria-label="Main navigation">
+        <a class="logo" href="cag.html">CAG<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="cag.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a class="active" href="financing.html" aria-current="page">Financing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a class="nav-button" href="contact.html">Talk to us</a>
+    </nav>
+</header>
+<main>
+    <section class="hero"><div class="container"><div class="eyebrow">CAG Motors Financing</div><h1>Make your next car work for you.</h1><p>Explore flexible payment options designed around your budget, then let our team guide you through the next steps.</p></div></section>
+    <section class="container calculator" aria-labelledby="calculator-title">
+        <div>
+            <h2 id="calculator-title">Estimate your payment</h2>
+            <p class="calculator-intro">Adjust the figures below for a simple monthly estimate. This is for guidance only; final terms depend on approval.</p>
+            <div class="form-grid">
+                <div class="field full"><label for="price">Vehicle price ($)</label><input id="price" type="number" min="1000" value="30000"></div>
+                <div class="field"><label for="deposit">Down payment ($)</label><input id="deposit" type="number" min="0" value="5000"></div>
+                <div class="field"><label for="term">Loan term (months)</label><input id="term" type="number" min="12" max="84" value="60"></div>
+                <div class="field full"><label for="rate">Estimated annual rate (%)</label><input id="rate" type="number" min="0" step="0.1" value="7.5"></div>
+            </div>
+        </div>
+        <div class="result"><span>Estimated monthly payment</span><strong id="payment">$501</strong><small>Principal and interest estimate</small></div>
+    </section>
+    <section class="steps"><div class="container"><div class="steps-heading"><div class="eyebrow">A simpler way to buy</div><h2>Financing in three steps.</h2><p>We keep the process clear from your first question to the day you drive away.</p></div><div class="step-grid"><article class="step"><div class="step-number">01</div><h3>Choose your vehicle</h3><p>Find the model that fits your life and budget in our current collection.</p></article><article class="step"><div class="step-number">02</div><h3>Review your options</h3><p>Our team will explain available terms and help you compare your choices.</p></article><article class="step"><div class="step-number">03</div><h3>Drive with confidence</h3><p>Once approved, we complete the details and prepare your vehicle for handover.</p></article></div></div></section>
+    <section class="cta"><div class="container"><div class="eyebrow">Ready to begin?</div><h2>Let’s find the right plan.</h2><p>Talk with the CAG Motors team about your vehicle and financing needs.</p><a class="button" href="contact.html">Contact our team</a></div></section>
+</main>
+<footer><div class="container">&copy; 2026 CAG Motors. Built for the road ahead.</div></footer>
+<script>
+const fields = ["price", "deposit", "term", "rate"].map((id) => document.getElementById(id));
+const payment = document.getElementById("payment");
+function updatePayment() {
+    const [price, deposit, term, rate] = fields.map((field) => Number(field.value) || 0);
+    const principal = Math.max(price - deposit, 0);
+    const monthlyRate = rate / 100 / 12;
+    const amount = monthlyRate === 0 ? principal / term : principal * monthlyRate / (1 - Math.pow(1 + monthlyRate, -term));
+    payment.textContent = `$${Math.round(amount).toLocaleString()}`;
+}
+fields.forEach((field) => field.addEventListener("input", updatePayment));
+updatePayment();
+</script>
+</body>
+</html>
